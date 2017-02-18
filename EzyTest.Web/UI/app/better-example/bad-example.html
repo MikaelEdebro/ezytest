@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.1.js"></script>
+    <style>
+        h1 {
+            font-family: verdana;
+            font-size: 1.2em;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.write('<h1>The fantastic javascript example</h1>')
+        function alertMe(i) {
+            if (i == 5) {
+                alert('five');
+            } else {
+                alert(i);
+            }
+        }
+
+        function LoadList() {
+            $(".THELIST").empty();
+
+            for (i = 0; i < 10; i++) {
+                newElem = $("<li><a href='#'>" + i + "</a></li>");
+                newElem.click(function () {
+                    alertMe(i);
+                });
+                $(".THELIST").append(newElem);
+            }
+        }
+
+        $("#Clock").text(Date());
+        setTimeout(tooLong, 30000);
+
+        function tooLong() {
+            alert('you have now been on the page for half a minute');
+        }
+    </script>
+    <h1>List</h1>
+    <table border="1">
+        <tr>
+            <td style="width: 200px;"> <a href="javascript:LoadList();">Read list to the right</a> </td>
+            <td>
+                <ul class="THELIST "> </ul>
+            </td>
+        </tr>
+    </table>
+    <p>Time is: <span id="Clock"></span></p>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+﻿.dashboard {
+    border: 1px solid black;
+}
+
+.task {
+    background: rgba(0, 0, 0, .1);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px;
+}
+.task h3 {
+    text-align: center;
+}
+
