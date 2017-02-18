@@ -5,18 +5,14 @@ import template from "./dashboard.html";
 export class Dashboard {
 
     constructor() {
-        var self = this;
+        const self = this;
 
         const viewModel = function () {
             this.tasks = ko.observableArray(self.getTasks());
-            this.hideButton = ko.pureComputed(function () {
-                return false;
-            });
         };
 
         KnockoutService.registerComponent("ezy-dashboard", viewModel, template);
     }
-
 
     getTasks() {
         var tasks = [];
@@ -28,7 +24,7 @@ export class Dashboard {
         tasks.push({
             question: "The code below is used in an ASP.NET application where ”GreetingService.CurrentGreeting”is fetched at the following times: 08, 12 and 16. Which message is returned on each run?",
             answer: "text",
-            component: "ezy-exchange-rates"
+            component: null
         });
         tasks.push({
             question: "Entity Framework is used to fetch data from a table in a database and display the result with a text header that shows the total number of rows returned in the result. Which of the following versions would you suggest, and why?",
@@ -54,6 +50,11 @@ export class Dashboard {
             question: "Take a look at the following badly written page. Please rewrite it as you would have done it, it don’t need to be exactly the same result, but similar. You can change any code that you don’t think is well done and reapply it in a different way. Use best practices regarding HTML, JS, CSS but also regarding architecture and performance.  Using for example javascript module pattern and optionally KnockoutJS or other framework to bind the JS with html.",
             answer: "Created a Knockout component. Please see /ui/app/",
             component: "ezy-better-example"
+        });
+        tasks.push({
+            question: "Create a web page with a button. When you click on the button the application should retrieve the currency rates for USD and EUR and display them on the page. Currency rates can be found on: http://www.forex.se/ratesxml.asp?id=492. Please use ASP.NET Mvc Project that calls via AJAX either calls a webapi method or a jsonresult method, that's consuming the exchange service. Please think of how you structure your code.Use: MVC, Javascript Modulepattern, async calls, Knockoutjs (optional)",
+            answer: "Created a Knockout component. Please see /ui/app/",
+            component: "ezy-exchange-rates"
         });
 
         return tasks;

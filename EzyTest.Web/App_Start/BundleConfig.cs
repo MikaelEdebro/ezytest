@@ -17,6 +17,7 @@ namespace EzyTest.Web
                 "~/node_modules/bootstrap/dist/css/bootstrap.css",
                 "~/UI/css/site.css",
                 "~/UI/app/exchange-rates/exhange-rates.css",
+                "~/UI/app/rate-task/rate-task.css",
                 "~/UI/app/dashboard/dashboard.css"));
         }
     }
