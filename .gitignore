@@ -1,0 +1,5 @@
+EzyTest.Web/node_modules/
+packages/
+EzyTest.Web/obj/
+EzyTest.Web/bin/
+.vs/
