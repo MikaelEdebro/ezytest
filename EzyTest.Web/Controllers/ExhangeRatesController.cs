@@ -1,46 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Xml;
+using System.Xml.Linq;
+using EzyTest.Web.Models;
 
 namespace EzyTest.Web.Controllers
 {
-    public class ExchangeRate
-    {
-        public decimal From { get; set; }
-        public decimal To { get; set; }
-    }
     public class ExhangeRatesController : ApiController
     {
         // GET api/exhangerates
-        public async Task<ExchangeRate> Get()
+        public async Task<IEnumerable<ExchangeRate>> Get()
         {
             const string exhangeRateUrl = "http://www.forex.se/ratesxml.asp?id=492";
 
-            var xml = await GetXmlFromUrl(exhangeRateUrl);
-            
-            // pars xml and return
+            var currencies = new[] {"USD", "EUR"};
 
-            var exchangeRate = new ExchangeRate
-            {
-                From = 200,
-                To = 2000
-            };
-            return exchangeRate;
+            var xml = await GetXmlFromUrl(exhangeRateUrl);
+
+            return GetSelectedCurrencies(xml, currencies);
+        }
+
+        private IEnumerable<ExchangeRate> GetSelectedCurrencies(XDocument xml, string[] currencies)
+        {
+            var currenciesList = new List<ExchangeRate>();
+
+
+            currenciesList.Add(new ExchangeRate { Code = "USD", Rate = 1000});
+            currenciesList.Add(new ExchangeRate { Code = "EUR", Rate = 2332});
+
+            return currenciesList;
         }
 
 
-        private async Task<XmlDocument> GetXmlFromUrl(string url)
+        private async Task<XDocument> GetXmlFromUrl(string url)
         {
-            var xmlDocument = new XmlDocument();
+            var xmlDocument = new XDocument();
 
             await Task.Run(() =>
             {
-                xmlDocument.Load(url);
+                xmlDocument = XDocument.Load(url);
             });
 
             return xmlDocument;

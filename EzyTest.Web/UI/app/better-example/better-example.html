@@ -1,39 +1,12 @@
-<script>
-    document.write('<h1>The fantastic javascript example</h1>')
-    function alertMe(i) {
-        if (i == 5) {
-            alert('five');
-        } else {
-            alert(i);
-        }
-    }
+<div class="better-example">
+    <h2 data-bind="text: greeting"></h2>
 
-    function LoadList() {
-        $(".THELIST").empty();
+    <button type="button" class="btn btn-primary" data-bind="click: initReminder, text: reminderButtonText"></button>
+    <button type="button" class="btn btn-primary" data-bind="click: showList">Load list</button>
 
-        for (i = 0; i < 10; i++) {
-            newElem = $("<li><a href='#'>" + i + "</a></li>");
-            newElem.click(function () {
-                alertMe(i);
-            });
-            $(".THELIST").append(newElem);
-        }
-    }
+    <ul data-bind="visible: listVisible, foreach: listItems">
+        <li data-bind="click: function() { $parent.showAlert($index() + 1) }, text: ($index() + 1)"></li>
+    </ul>
 
-    $("#Clock").text(Date());
-    setTimeout(tooLong, 30000);
-
-    function tooLong() {
-        alert('you have now been on the page for half a minute');
-    }
-</script>
-<h1>List</h1>
-<table border="1">
-    <tr>
-        <td style="width: 200px;"> <a href="javascript:LoadList();">Read list to the right</a> </td>
-        <td>
-            <ul class="THELIST "> </ul>
-        </td>
-    </tr>
-</table>
-<p>Time is: <span id="Clock"></span></p>
+    <p>Time is: <span data-bind="text: currentTime"></span></p>
+</div>

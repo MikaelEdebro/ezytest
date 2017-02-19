@@ -6,15 +6,15 @@ export class RateTask {
 
     constructor() {
         
-        const viewModel = function () {
-            var self = this;
-            
-            this.approved = ko.observable(null);
+        const viewModel = function (params) {
+            this.approved = ko.observable(params.approved);
             this.approveTask = function () {
                 this.approved(true);
+                params.approved(true);
             };
             this.disapproveTask = function () {
                 this.approved(false);
+                params.approved(false);
             };
         };
 

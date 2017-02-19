@@ -1,4 +1,16 @@
-﻿.dashboard {
+﻿.dashboard .summary {
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.dashboard .summary button {
+    width: 100%;
+    padding: 20px;
+}
+
+.dashboard .summary .result {
+    margin-top: 10px;
 }
 
 .task {
@@ -10,4 +22,13 @@
 .task h3 {
     text-align: center;
 }
+.task.approved {
+    background: #A1D490;
+}
+.task.disapproved {
+    background: #D49090;
+}
 
+.answer {
+    margin-top: 10px;
+}

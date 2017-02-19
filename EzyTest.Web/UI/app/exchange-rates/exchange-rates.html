@@ -1,7 +1,9 @@
 ﻿<div class="exchange-rates">
     <button type="button" class="btn btn-primary" data-bind="click: getExchangeRates">Fetch exchange rates</button>
-    <p class="from" data-bind="text: currencyFrom"></p>
-    <p class="to" data-bind="text: currencyTo"></p>
+
+    <div data-bind="foreach: rates">
+        1 <span class="from" data-bind="text: code"></span> = <span class="to" data-bind="text: rate"></span> SEK<br>
+    </div>
 
     <ezy-loader params="showLoader: showLoader, text: 'Simulating delay and fetching data...'"></ezy-loader>
 </div>

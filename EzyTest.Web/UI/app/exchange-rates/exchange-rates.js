@@ -8,7 +8,7 @@ export class ExchangeRates {
         const exchangeRateApiUrl = "/api/exhangerates";
 
         let viewModel = {
-            currencyFrom: ko.observable(),
+            rates: ko.observableArray(),
             currencyTo: ko.observable(),
             showLoader: ko.observable(false),
             getExchangeRates: function () {
@@ -18,8 +18,10 @@ export class ExchangeRates {
                     var jqxhr = $.getJSON(exchangeRateApiUrl)
                     .done(function (response) {
                         console.log("response", response);
-                        viewModel.currencyFrom(response.from);
-                        viewModel.currencyTo(response.to);
+
+                        response.forEach(function (rate) {
+                            viewModel.rates.push(rate);
+                        });
                     })
                     .always(function () {
                         viewModel.showLoader(false);

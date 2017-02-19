@@ -1,17 +1,25 @@
-﻿<div class="dashboard" data-bind="foreach: tasks">
-    <div class="task">
-        <h3>Task</h3>
-        <div class="question">
-            <b>Fråga: </b><i data-bind="text: question"></i>
-        </div>
-        <div class="answer">
-            <b>Svar: </b>
-            <div data-bind="html: answer"></div>
-        </div>
-        <div data-bind="if: component">
-            <div data-bind="component: component"></div>
-        </div>
+﻿<div class="dashboard">
+    <div data-bind="foreach: tasks">
+        <div class="task" data-bind="css: {approved: approved(), disapproved: approved() == false}">
+            <h3>Task <span data-bind="text: ($index() + 1)"></span></h3>
+            <div class="question">
+                <b>Fråga: </b><i data-bind="text: question"></i>
+            </div>
+            <div class="answer">
+                <b>Svar: </b>
+                <div data-bind="html: answer"></div>
+            </div>
+            <div data-bind="if: component">
+                <div data-bind="component: component"></div>
+            </div>
 
-        <ezy-rate-task></ezy-rate-task>
+            <ezy-rate-task params="approved: approved"></ezy-rate-task>
+        </div>
     </div>
+
+    <div class="summary">
+        <button type="button" class="btn btn-info" data-bind="click: createSummary">Create summary</button>
+        <div class="result" data-bind="html: finalResult"></div>
+    </div>
+
 </div>
