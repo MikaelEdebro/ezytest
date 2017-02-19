@@ -5,31 +5,43 @@ import template from "./exchange-rates.html";
 export class ExchangeRates {
     constructor() {
 
-        const exchangeRateApiUrl = "/api/exhangerates";
-
         let viewModel = {
             rates: ko.observableArray(),
             currencyTo: ko.observable(),
             showLoader: ko.observable(false),
-            getExchangeRates: function () {
-                viewModel.showLoader(true);
-
-                setTimeout(function () {
-                    var jqxhr = $.getJSON(exchangeRateApiUrl)
-                    .done(function (response) {
-                        console.log("response", response);
-
-                        response.forEach(function (rate) {
-                            viewModel.rates.push(rate);
-                        });
-                    })
-                    .always(function () {
-                        viewModel.showLoader(false);
-                    });
-                }, 3000);
-            }
+            getExchangeRates: this.getExchangeRates
         }
 
         KnockoutService.registerComponent("ezy-exchange-rates", viewModel, template);
+    }
+
+    getExchangeRates() {
+        const self = this;
+        const exchangeRateApiUrl = "/api/exchangerates";
+
+        self.rates([]);
+        self.showLoader(true);
+
+        setTimeout(function () {
+
+            var exchangeRateRequest = {
+                currencies: ["USD", "EUR"]
+            }
+
+            var jqxhr = $.getJSON(exchangeRateApiUrl, exchangeRateRequest)
+                .done(function (response) {
+                    console.log("response", response);
+
+                    response.forEach(function (rate) {
+                        self.rates.push(rate);
+                    });
+                })
+                .fail(function() {
+                    alert("Could not load exchange rates");
+                })
+                .always(function () {
+                    self.showLoader(false);
+                });
+        }, 3000);
     }
 }

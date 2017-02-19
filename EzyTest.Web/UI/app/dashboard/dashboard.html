@@ -3,7 +3,8 @@
         <div class="task" data-bind="css: {approved: approved(), disapproved: approved() == false}">
             <h3>Task <span data-bind="text: ($index() + 1)"></span></h3>
             <div class="question">
-                <b>Fråga: </b><i data-bind="text: question"></i>
+                <b>Fråga: </b>
+                <i data-bind="text: question"></i>
             </div>
             <div class="answer">
                 <b>Svar: </b>

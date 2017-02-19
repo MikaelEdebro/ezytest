@@ -7,6 +7,7 @@
 .dashboard .summary button {
     width: 100%;
     padding: 20px;
+    font-size: 28px;
 }
 
 .dashboard .summary .result {
@@ -17,7 +18,7 @@
     background: rgba(0, 0, 0, .1);
     border-radius: 12px;
     padding: 15px;
-    margin: 10px;
+    margin: 15px 0;
 }
 .task h3 {
     text-align: center;
