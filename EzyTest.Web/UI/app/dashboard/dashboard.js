@@ -5,10 +5,9 @@ import template from "./dashboard.html";
 export class Dashboard {
 
     constructor() {
-        const self = this;
 
-        const viewModel = function () {
-            this.tasks = ko.observableArray(self.getTasks());
+        let viewModel = {
+            tasks: ko.observableArray(this.getTasks())
         };
 
         KnockoutService.registerComponent("ezy-dashboard", viewModel, template);
@@ -18,7 +17,7 @@ export class Dashboard {
         var tasks = [];
         tasks.push({
             question: "Two separate .NET systems are set up to validate MD5 keys (or SHA1 etc) from a database. The MD5 keys are generated from a list of employee names. The validation is matching 100% on one system, but only 95% on the other system. What is the most probable reason for this?",
-            answer: "Some answer <b>Some thing</b>",
+            answer: "Jag har dessvärre inte jobbat med kryptering så jag kan dessvärre bara spekulera vilt. Några tänkbara scenarier jag skulle kika på är dock ifall några inställningar på servrarna diffar.",
             component: null
         });
         tasks.push({
@@ -53,7 +52,7 @@ export class Dashboard {
         });
         tasks.push({
             question: "Create a web page with a button. When you click on the button the application should retrieve the currency rates for USD and EUR and display them on the page. Currency rates can be found on: http://www.forex.se/ratesxml.asp?id=492. Please use ASP.NET Mvc Project that calls via AJAX either calls a webapi method or a jsonresult method, that's consuming the exchange service. Please think of how you structure your code.Use: MVC, Javascript Modulepattern, async calls, Knockoutjs (optional)",
-            answer: "Created a Knockout component. Please see /ui/app/",
+            answer: "Created a Knockout component. Click button below. For src, see /ui/app/exchange-rates and ExhangeRatesController.cs",
             component: "ezy-exchange-rates"
         });
 

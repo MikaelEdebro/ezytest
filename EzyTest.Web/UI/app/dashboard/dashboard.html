@@ -1,12 +1,17 @@
 ﻿<div class="dashboard" data-bind="foreach: tasks">
     <div class="task">
-        <h3>Task</h3><i data-bind="text: question"></i>
-        <div data-bind="html: answer"></div>
-        
+        <h3>Task</h3>
+        <div class="question">
+            <b>Fråga: </b><i data-bind="text: question"></i>
+        </div>
+        <div class="answer">
+            <b>Svar: </b>
+            <div data-bind="html: answer"></div>
+        </div>
         <div data-bind="if: component">
             <div data-bind="component: component"></div>
         </div>
-        
+
         <ezy-rate-task></ezy-rate-task>
     </div>
 </div>

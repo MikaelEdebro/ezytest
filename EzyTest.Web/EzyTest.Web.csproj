@@ -124,7 +124,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="UI\bundle\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -160,7 +159,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\ExhangeRatesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,8 +170,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="rollup.config.js" />
-    <Content Include="UI\app\core\knockout.service.js" />
+    <Content Include="UI\app\better-example\bad-example.html" />
+    <Content Include="UI\app\better-example\better-example.html" />
+    <Content Include="UI\app\better-example\better-example.js" />
     <Content Include="UI\app\dashboard\dashboard.css" />
+    <Content Include="UI\app\exchange-rates\exchange-rates.css" />
     <Content Include="UI\app\exchange-rates\exchange-rates.html" />
     <Content Include="UI\app\exchange-rates\exchange-rates.js" />
     <Content Include="UI\app\entry.js" />
@@ -199,7 +201,17 @@
     <Content Include="package.json" />
     <Content Include="UI\app\dashboard\dashboard.html" />
     <Content Include="UI\app\dashboard\dashboard.js" />
+    <Content Include="UI\app\loader\loader.css" />
+    <Content Include="UI\app\loader\loader.html" />
+    <Content Include="UI\app\loader\loader.js" />
+    <Content Include="UI\app\rate-task\rate-task.css" />
+    <Content Include="UI\app\rate-task\rate-task.html" />
+    <Content Include="UI\app\rate-task\rate-task.js" />
+    <Content Include="UI\app\services\knockout.service.js" />
+    <Content Include="UI\app\services\reminder.service.js" />
+    <Content Include="UI\bundle\scripts.bundle.js" />
     <Content Include="UI\css\site.css" />
+    <Content Include="UI\img\ajax-loader.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
