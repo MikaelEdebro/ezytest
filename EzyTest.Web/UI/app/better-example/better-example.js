@@ -6,8 +6,7 @@ import template from "./better-example.html";
 export class BetterExample {
 
     constructor() {
-        const self = this;
-
+        
         let viewModel = {
             listItems: ko.observableArray(new Array(10)),
             greeting: "The fantastic javascript example",

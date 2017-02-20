@@ -1,5 +1,4 @@
-﻿import ko from "knockout";
-import { KnockoutService } from "../services/knockout.service";
+﻿import { KnockoutService } from "../services/knockout.service";
 import template from "./loader.html";
 
 export class Loader {

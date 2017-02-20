@@ -28,10 +28,8 @@ export class ExchangeRates {
                 currencies: ["USD", "EUR"]
             }
 
-            var jqxhr = $.getJSON(exchangeRateApiUrl, exchangeRateRequest)
+            $.getJSON(exchangeRateApiUrl, exchangeRateRequest)
                 .done(function (response) {
-                    console.log("response", response);
-
                     response.forEach(function (rate) {
                         self.rates.push(rate);
                     });

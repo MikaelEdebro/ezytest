@@ -10,7 +10,8 @@ export default {
     entry: "ui/app/entry.js",
     dest: "ui/bundle/scripts.bundle.js",
     format: "iife",
-    sourceMap: "inline",
+    sourceMap: true,
+    useStrict: false,
     plugins: [
         inject({
             // control which files this plugin applies to
