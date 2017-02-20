@@ -28,7 +28,7 @@
         "warn"
       ],
       "no-unused-vars": [
-        "warn"
+        "off"
       ],
       "no-irregular-whitespace": [
         "off"
