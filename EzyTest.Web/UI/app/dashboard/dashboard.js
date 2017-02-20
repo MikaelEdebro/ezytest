@@ -43,13 +43,19 @@ export class Dashboard {
         });
         tasks.push({
             question: "What is clean code? Please describe key points you use in your everyday work.",
-            answer: "Jag försöker",
+            answer: `
+            Detta känns som ett gigantiskt ämne som skulle bli ett helt A4. 
+            Det är dock ett ämne som jag brinner för, och som jag mer än gärna berättar hur jag tillämpar detta över en kopp kaffe. :)
+            `,
             component: null,
             approved: ko.observable(null)
         });
         tasks.push({
             question: "We have problem with scrapers doing a lot of searches on the site. We want to generate a list of ips that do unusual amount of searches, and also have the ability to block them. Imagine “Search” below being called very often by many users at the same time. What potential problems can we run into?",
-            answer: "Vad jag kan se gör metoden AddIpToDictionary() inget vettigt i den där koden, eftersom den new:as upp vid varje nytt sök?<br>Risken finns också att prestandan kan bli lidande eftersom man måste söka igenom listan med blockade IP (som kan bli lång) varje gång ngn gör en sökning.",
+            answer: `
+            Risken finns att prestandan kan bli lidande eftersom man måste söka igenom listan med blockade IP (som kan bli lång) varje gång ngn gör en sökning.<br>
+            Just i den där koden kan jag inte riktigt se hur metoden AddIpToDictionary() tillför ngt, eftersom den new:as upp vid varje nytt sök?
+            `,
             component: null,
             approved: ko.observable(null)
         });
